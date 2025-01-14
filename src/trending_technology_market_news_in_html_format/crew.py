@@ -13,6 +13,7 @@ class TrendingTechnologyMarketNewsInHtmlFormatCrew():
         return Agent(
             config=self.agents_config['news_search_agent'],
             tools=[WebsiteSearchTool()],
+            verbose=True,
         )
 
     @agent
@@ -20,6 +21,7 @@ class TrendingTechnologyMarketNewsInHtmlFormatCrew():
         return Agent(
             config=self.agents_config['news_scrape_agent'],
             tools=[ScrapeWebsiteTool()],
+            verbose=True,
         )
 
     @agent
@@ -27,6 +29,7 @@ class TrendingTechnologyMarketNewsInHtmlFormatCrew():
         return Agent(
             config=self.agents_config['html_compile_agent'],
             tools=[FileReadTool()],
+            verbose=True,
         )
 
 
