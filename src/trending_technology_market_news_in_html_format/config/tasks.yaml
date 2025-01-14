@@ -1,0 +1,27 @@
+---
+search_news_websites_task:
+  description: Search the web for news websites that cover relevant technology market
+    news using specific keywords such as 'technology market news 2025', 'trending
+    tech news', etc.
+  expected_output: A list of URLs of news websites that cover trending technology
+    market news.
+  async_execution: false
+  agent: news_search_agent
+scrape_news_data_task:
+  description: Scrape the headlines, summaries, and URLs from the news websites found
+    by the News Research Specialist.
+  expected_output: A collection of news headlines, summaries, and source URLs from
+    the scraped news websites.
+  async_execution: false
+  agent: news_scrape_agent
+  context:
+  - search_news_websites_task
+compile_html_task:
+  description: Compile the scraped news data into an HTML format with proper headings,
+    paragraphs, and clickable URLs.
+  expected_output: An HTML file containing the trending technology market news with
+    headings, summaries, and clickable source URLs.
+  async_execution: false
+  agent: html_compile_agent
+  context:
+  - scrape_news_data_task
